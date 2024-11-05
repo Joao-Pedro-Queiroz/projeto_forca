@@ -1,6 +1,6 @@
 # Jogo de Forca Interativo
 
-Este projeto implementa um jogo de forca interativo, com uma simulação de jogador que usa probabilidade para adivinhar palavras. O jogo envolve a lógica para gerenciar tentativas e calcular a melhor próxima jogada.
+Este projeto implementa um jogo de forca interativo com uma simulação de jogador que usa probabilidade para adivinhar palavras. O jogo gerencia tentativas e calcula a melhor próxima jogada.
 
 ## Estrutura do Projeto
 
@@ -23,11 +23,7 @@ A classe `JogoDeForca` controla a palavra a ser adivinhada, as tentativas e o es
 
 A classe `Jogador` implementa uma lógica probabilística, escolhendo letras com base em sua frequência na língua portuguesa e nas letras já descobertas na palavra secreta.
 
-1. **Probabilidade de Letras**: O jogador utiliza um vetor de frequência de letras, onde a probabilidade de escolher uma letra é calculada por:
-   \[
-   P(\text{letra}) = \frac{f_{\text{letra}}}{\sum f_{\text{todas as letras}}}
-   \]
-   onde \( f_{\text{letra}} \) é a frequência média da letra.
+1. **Probabilidade de Letras**: O jogador utiliza um vetor de frequência de letras. A probabilidade de escolher uma letra é calculada dividindo a frequência da letra pela soma das frequências de todas as letras não tentadas.
 
 2. **Seleção da Letra**: A cada rodada, a letra com maior probabilidade entre as não tentadas é escolhida.
 
