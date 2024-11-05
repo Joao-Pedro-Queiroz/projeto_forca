@@ -1,25 +1,45 @@
+# Jogo de Forca Interativo
 
-# Projeto Jogador de Forca
+Este projeto implementa um jogo de forca interativo, com uma simulação de jogador que usa probabilidade para adivinhar palavras. O jogo envolve a lógica para gerenciar tentativas e calcular a melhor próxima jogada.
 
-## Participantes
-Vitor Raia e João Pedro Queiroz 
+## Estrutura do Projeto
 
-## Resumo
+O projeto possui duas classes principais:
 
-Este projeto implementa um jogo de forca interativo em Python, onde o jogador tenta adivinhar uma palavra escolhida aleatoriamente. A solução utiliza conceitos de **Teoria da Informação** e **Álgebra Linear** para otimizar a seleção das letras, explorando a compressão de dados através do algoritmo de Huffman. O projeto introduz duas classes principais: `JogoDeForca`, que gerencia as regras do jogo e controla as tentativas do jogador, e `Jogador`, que implementa uma estratégia automatizada para adivinhar palavras com base na frequência e posição das letras.
+1. **JogoDeForca**: Representa o jogo, contendo a lógica para validar as tentativas e gerenciar vitória ou derrota.
+2. **Jogador**: Implementa a estratégia do jogador, que usa uma análise probabilística para tentar a palavra da melhor forma.
 
-### Implementação e Conceitos Utilizados
+### Classe `JogoDeForca`
 
-1. **Teoria da Informação**: O projeto aplica o **algoritmo de Huffman** para calcular a frequência dos caracteres, otimizando a seleção das letras mais prováveis de aparecer na palavra. Esta abordagem, que utiliza árvores binárias de codificação, permite que o jogador simulado escolha letras que maximizam a informação adquirida a cada tentativa, reduzindo o número de tentativas necessárias para adivinhar a palavra completa.
+A classe `JogoDeForca` controla a palavra a ser adivinhada, as tentativas e o estado do jogo:
 
-2. **Álgebra Linear**: Os conceitos de álgebra linear auxiliam na manipulação de matrizes e vetores para estruturar e organizar os dados do jogo, como frequências e posições das letras, e para calcular distribuições probabilísticas das letras na palavra. Esse uso ajuda a otimizar as estratégias do jogador automatizado, facilitando a criação de uma estrutura que prioriza letras com maior probabilidade de ocorrer, com base em padrões linguísticos.
+- **Palavra Secreta**: Palavra que o jogador precisa adivinhar.
+- **Tentativas**: Letras já tentadas pelo jogador.
+- **Erros Máximos**: Número limite de erros antes da derrota.
+- **Método `tentar_letra(letra)`**: Avalia se a letra está correta e atualiza o jogo.
+- **Condições de Fim de Jogo**: O jogo termina quando a palavra é totalmente adivinhada ou o limite de erros é alcançado.
 
-### Estrutura do Projeto
+### Classe `Jogador`
 
-- `JogoDeForca`: Classe que gerencia o estado do jogo, controla o número de vidas, escolhe uma palavra aleatória e valida as tentativas do jogador.
-- `Jogador`: Classe que implementa o jogador simulado, utiliza o algoritmo de Huffman para decidir a próxima letra a ser escolhida e monitora vitórias e derrotas.
+A classe `Jogador` implementa uma lógica probabilística, escolhendo letras com base em sua frequência na língua portuguesa e nas letras já descobertas na palavra secreta.
 
-### Execução
+1. **Probabilidade de Letras**: O jogador utiliza um vetor de frequência de letras, onde a probabilidade de escolher uma letra é calculada por:
+   \[
+   P(\text{letra}) = \frac{f_{\text{letra}}}{\sum f_{\text{todas as letras}}}
+   \]
+   onde \( f_{\text{letra}} \) é a frequência média da letra.
 
-Para iniciar o jogo, basta instanciar as classes `JogoDeForca` e `Jogador`, e chamar o método `jogar` na instância de `Jogador`. Ao final das tentativas, o programa exibirá um gráfico de barras mostrando o número de vitórias e derrotas do jogador simulado.
+2. **Seleção da Letra**: A cada rodada, a letra com maior probabilidade entre as não tentadas é escolhida.
 
+### Condições de Vitória e Derrota
+
+- **Vitória**: O jogador vence ao adivinhar todas as letras da palavra antes de atingir o limite de erros.
+- **Derrota**: Se o limite de erros é atingido, o jogo exibe uma mensagem de perda e revela a palavra.
+
+### Estatísticas
+
+A classe `Jogador` exibe estatísticas ao final das rodadas, permitindo ajustar estratégias em novas tentativas.
+
+## Como Jogar
+
+Execute o script principal para iniciar o jogo, e o jogador automático tentará adivinhar a palavra.
