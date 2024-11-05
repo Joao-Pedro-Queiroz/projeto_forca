@@ -30,7 +30,8 @@ A classe `Jogador` implementa uma lógica probabilística, escolhendo letras com
 ### Condições de Vitória e Derrota
 
 - **Vitória**: O jogador vence ao adivinhar todas as letras da palavra antes de atingir o limite de erros.
-- **Derrota**: Se o limite de erros é atingido, o jogo exibe uma mensagem de perda e revela a palavra.
+- **Derrota**: Se o limite de erros é atingido, o jogo exibe uma mensagem de perda e revela a palavra.  
+  - **Casos de Derrota**: A derrota pode ocorrer se o jogador escolher muitas letras comuns que não estão na palavra específica, desperdiçando tentativas. Isso é mais provável quando a palavra contém letras raras, o que leva a uma sequência de erros.
 
 ### Estatísticas
 
