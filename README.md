@@ -24,7 +24,7 @@ Para avaliar o desempenho do jogador, executamos 100 jogos com palavras escolhid
 
 ### Resultados Obtidos
 
-Nos testes realizados, o jogador obteve uma taxa de vitória de aproximadamente **X%** (substitua por resultado real após execução). Este resultado sugere que a aplicação da teoria da informação e das probabilidades é eficaz para melhorar a performance em um jogo de forca com 5 vidas limitadas.
+Nos testes realizados, o jogador obteve uma taxa de vitória de aproximadamente **93%**, onde a quantidade de vitórias a cada execução tem uma mpedia de variação entre 90 e 96 vitórias de 100 partidas. Este resultado sugere que a aplicação da teoria da informação e das probabilidades é eficaz para melhorar a performance em um jogo de forca com 5 vidas limitadas.
 
 ## Análise de Casos de Erro
 
@@ -47,4 +47,4 @@ O notebook `demo.ipynb` contém todos os passos necessários para executar o jog
 
 ## Conclusão
 
-Este projeto demonstra a eficácia do uso da teoria da informação aplicada a um jogo
+Este projeto demonstra a eficácia do uso da teoria da informação aplicada a um jogo de forca. A estratégia de entropia permite que o jogador faça escolhas informadas, maximizando suas chances de sucesso. O jogador automático implementado é eficaz na maioria das vezes, mas há oportunidades de melhoria em casos onde a estrutura da palavra ou a frequência das letras se tornam desvantagens estratégicas.
